@@ -27,18 +27,21 @@ class DateTest {
 
     @Test
     public void testNextDate() {
-        assertEquals(new Date(2, 1, 2000), new Date(1, 1, 2000).nextDate());
-        assertEquals(new Date(1, 2, 2000), new Date(31, 1, 2000).nextDate());
-        assertEquals(new Date(1, 3, 2000), new Date(29, 2, 2000).nextDate());
-        assertEquals(new Date(1, 1, 2001), new Date(31, 12, 2000).nextDate());
+        assertTrue(new Date(2, 1, 2000).compareTo(new Date(1, 1, 2000).nextDate())==0);
+        assertTrue(new Date(1, 2, 2000).compareTo(new Date(31, 1, 2000).nextDate())==0);
+        assertTrue(new Date(1, 3, 2000).compareTo(new Date(29, 2, 2000).nextDate())==0);
+        assertTrue(new Date(1, 1, 2001).compareTo(new Date(31, 12, 2000).nextDate())==0);
+    }
+
+    private void assertEquals(boolean b) {
     }
 
     @Test
     public void testPreviousDate() {
-        assertEquals(new Date(31, 12, 1999), new Date(1, 1, 2000).previousDate());
-        assertEquals(new Date(30, 1, 2000), new Date(31, 1, 2000).previousDate());
-        assertEquals(new Date(28, 2, 2000), new Date(29, 2, 2000).previousDate());
-        assertEquals(new Date(30, 12, 1999), new Date(31, 12, 2000).previousDate());
+        assertTrue(new Date(31, 12, 1999).compareTo(new Date(1, 1, 2000).previousDate())==0);
+        assertTrue(new Date(30, 1, 2000).compareTo(new Date(31, 1, 2000).previousDate())==0);
+        assertTrue(new Date(28, 2, 2000).compareTo(new Date(29, 2, 2000).previousDate())==0);
+        assertTrue(new Date(30, 12, 2000).compareTo(new Date(31, 12, 2000).previousDate())==0);
     }
 
     @Test
